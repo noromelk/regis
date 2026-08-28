@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="hy" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ծառայություններ — Smart Web Solutions / Regiscode</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      word-break: break-word;
+      overflow-wrap: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white break-words hyphens-auto">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 backdrop-blur-md bg-slate-950/90 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex flex-col group shrink-0">
+        <span class="text-base sm:text-lg md:text-xl font-black tracking-wider text-white uppercase leading-none group-hover:text-brand-400 transition">
+          SMART WEB SOLUTIONS
+        </span>
+        <span class="text-[10px] sm:text-[11px] font-bold text-slate-400 tracking-widest uppercase mt-1 flex items-center gap-1">
+          <span>REGISCODE</span>
+          <span class="text-slate-600">|</span>
+          <span>WEB STUDIO</span>
+          <span class="text-xs">🚀</span>
+        </span>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="hidden lg:flex gap-8 text-sm font-medium text-slate-400">
+        <a href="index.html" class="hover:text-white transition">Գլխավոր</a>
+        <a href="car.html" class="text-brand-400 font-semibold">Ծառայություններ</a>
+        <a href="about.html" class="hover:text-white transition">Մեր մասին</a>
+        <a href="index.html#calculator" class="hover:text-white transition">Հաշվիչ / Հայտ</a>
+      </nav>
+
+      <!-- Language Selector & WhatsApp Container -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        
+        <!-- Animated Language Switcher Button -->
+        <div class="relative bg-slate-900/90 border border-slate-800 p-1 rounded-full flex items-center shadow-inner">
+          <button onclick="switchLanguage('hy')" id="lang-hy" class="lang-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 text-white bg-brand-600 shadow-md shadow-brand-500/30">
+            ARM
+          </button>
+          <button onclick="switchLanguage('ru')" id="lang-ru" class="lang-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 text-slate-400 hover:text-white">
+            RUS
+          </button>
+          <button onclick="switchLanguage('en')" id="lang-en" class="lang-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 text-slate-400 hover:text-white">
+            ENG
+          </button>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/37433488275" target="_blank" class="flex items-center gap-2 bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium hover:bg-emerald-600/30 transition shadow-lg shadow-emerald-500/10 text-xs sm:text-sm">
+          <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i>
+          <span class="hidden sm:inline">WhatsApp Կապ</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 sm:pt-36 pb-12 sm:pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,_rgba(99,102,241,0.12),transparent_60%)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-4 sm:space-y-6">
+      <span class="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-widest bg-brand-500/10 text-brand-400 border border-brand-500/20 inline-block">
+        Մեր Ծառայություններն Ու Լուծումները
+      </span>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight sm:leading-tight">
+        Բարձրակարգ Վեբ Լուծումներ <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">Ձեր Բիզնեսի Աճի Համար</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed sm:leading-relaxed">
+        Ստեղծում ենք ժամանակակից, արագ, անվտանգ և 100% ադապտիվ վեբ կայքեր, e-commerce պլատֆորմներ ու CRM համակարգեր, որոնք ավտոմատացնում են ձեր բիզնես գործընթացները:
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-12 sm:py-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Service 1 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 hover:border-brand-500/50 transition duration-300 space-y-4 relative group">
+          <div class="w-14 h-14 bg-brand-500/10 text-brand-400 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Օնլայն Խանութներ (E-commerce)</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Ամբողջական օնլայն խանութների մշակում՝ ապրանքացանկով, զամբյուղով, պատվերների կառավարման վահանակով և Firebase cloud storage-ի աջակցությամբ։
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Հարմարավետ Զամբյուղ & Պատվեր</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Արագ որոնում & Ֆիլտրում</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Mobile-Optimized Interface</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 hover:border-brand-500/50 transition duration-300 space-y-4 relative group">
+          <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Custom CRM & ERP Համակարգեր</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Ձեր բիզնեսի առանձնահատկություններին համապատասխանեցված ներքին համակարգեր՝ հաճախորդների, պատվերների, պահեստի և հաշվետվությունների ավտոմատ կառավարման համար։
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Իրական ժամանակի վիճակագրություն</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Դերերի և իրավասությունների բաշխում</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Հաշվետվությունների ավտոմատացում</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 hover:border-brand-500/50 transition duration-300 space-y-4 relative group">
+          <div class="w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Բիզնես Կայքեր & Landing Pages</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Ներկայացուցչական կայքեր և բարձր կոնվերսիա ապահովող Landing Page-եր, որոնք լավագույնս փոխանցում են Ձեր ծառայությունների ու ապրանքների արժեքը ապագա հաճախորդներին:
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Ժամանակակից UI/UX դիզայն</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Բարձր բեռնավորման արագություն</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> WhatsApp / Telegram ինտեգրում</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 hover:border-brand-500/50 transition duration-300 space-y-4 relative group">
+          <div class="w-14 h-14 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">UI/UX Redesign & Մոդեռնիզացում</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Հնացած կայքերի լիարժեք արդիականացում, դիզայնի թարմացում, Tailwind CSS-ով վերակառուցում և օգտագործման հարմարավետության բարձրացում:
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800/80">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Modern Dark / Light Mode</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Ինտերակտիվ անիմացիաներ</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Clean Code Architecture</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="py-16 bg-slate-900/40 border-y border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10 space-y-3">
+        <h2 class="text-2xl sm:text-3xl font-bold">Մեր Օգտագործած Տեխնոլոգիաները</h2>
+        <p class="text-slate-400 text-sm sm:text-base">Ժամանակակից և հուսալի գործիքներ՝ բարձր արդյունավետության համար</p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-slate-400 font-bold text-sm sm:text-base">
+        <div class="flex items-center gap-2 bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800"><i class="fa-brands fa-html5 text-orange-500 text-xl"></i> HTML5 & CSS3</div>
+        <div class="flex items-center gap-2 bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800"><i class="fa-brands fa-css3-alt text-sky-400 text-xl"></i> Tailwind CSS</div>
+        <div class="flex items-center gap-2 bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800"><i class="fa-brands fa-js text-yellow-400 text-xl"></i> JavaScript (ES6+)</div>
+        <div class="flex items-center gap-2 bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800"><i class="fa-brands fa-python text-blue-400 text-xl"></i> Python</div>
+        <div class="flex items-center gap-2 bg-slate-950 px-5 py-3 rounded-2xl border border-slate-800"><i class="fa-solid fa-fire text-amber-500 text-xl"></i> Firebase / Firestore</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Accordion FAQ Section -->
+  <section class="py-16 sm:py-20 relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 space-y-3">
+        <h2 class="text-2xl sm:text-3xl font-bold">Հաճախ Տրվող Հարցեր</h2>
+        <p class="text-slate-400 text-sm sm:text-base">Սեղմեք հարցերի վրա՝ պատասխանները տեսնելու համար</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Accordion Item 1 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(1)" class="w-full p-5 sm:p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:bg-slate-800/40 transition">
+            <span class="text-base sm:text-lg">Որքա՞ն ժամանակ է պահանջվում կայքի պատրաստման համար:</span>
+            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-answer-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 sm:px-6 text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <div class="pb-6 pt-1 border-t border-slate-800/60">
+              Պարզ Landing Page-երը կամ բիզնես կայքերը պատրաստ են լինում 3-7 աշխատանքային օրում,  բարդ E-commerce խանութները կամ Custom CRM համակարգերը՝ 1-3 շաբաթում:
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(2)" class="w-full p-5 sm:p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:bg-slate-800/40 transition">
+            <span class="text-base sm:text-lg">Արդյո՞ք կայքը ադապտացված կլինի հեռախոսների համար:</span>
+            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-answer-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 sm:px-6 text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <div class="pb-6 pt-1 border-t border-slate-800/60">
+              Այո, մեր բոլոր նախագծերը 100% ադապտիվ են և կատարյալ աշխատում են բոլոր չափսերի սմարթֆոնների, պլանշետների և համակարգիչների վրա:
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3 -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(3)" class="w-full p-5 sm:p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:bg-slate-800/40 transition">
+            <span class="text-base sm:text-lg">Ինչպե՞ս է իրականացվում հետագա տեխնիկական սպասարկումը:</span>
+            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-answer-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 sm:px-6 text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <div class="pb-6 pt-1 border-t border-slate-800/60">
+              Նախագծի հանձնումից հետո մենք տրամադրում ենք անվճար տեխնիկական աջակցություն, ինչպես նաև առաջարկում ենք երկարաժամկետ սպասարկման ճկուն տարբերակներ:
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="py-16 sm:py-20 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 sm:space-y-8">
+      <h2 class="text-2xl sm:text-4xl font-bold">Պատրաստ Ե՞ք Սկսել Ձեր Նախագիծը</h2>
+      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        Ուղարկեք հայտ կամ գրեք մեզ WhatsApp-ով՝ անվճար խորհրդատվություն և ճշգրիտ հաշվարկ ստանալու համար:
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="index.html#calculator" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-indigo-600 px-8 py-3.5 rounded-xl font-bold hover:opacity-95 transition shadow-lg shadow-brand-500/20 text-center">
+          Հաշվարկել Նախագիծը
+        </a>
+        <a href="https://wa.me/37433488275" target="_blank" class="w-full sm:w-auto bg-slate-900 border border-slate-800 px-8 py-3.5 rounded-xl font-bold text-emerald-400 hover:bg-slate-800 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Գրել WhatsApp-ին</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 pt-12 sm:pt-16 pb-10 sm:pb-12 text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10">
+      
+      <!-- Studio Info -->
+      <div class="space-y-4 md:col-span-1">
+        <div class="flex flex-col">
+          <span class="text-base sm:text-lg font-black tracking-wider text-white uppercase leading-none">
+            SMART WEB SOLUTIONS
+          </span>
+          <span class="text-[10px] font-bold text-slate-400 tracking-widest uppercase mt-1 flex items-center gap-1">
+            <span>REGISCODE</span>
+            <span class="text-slate-600">|</span>
+            <span>WEB STUDIO</span>
+            <span class="text-xs">🚀</span>
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+          Վեբ կայքերի, CRM համակարգերի և բիզնես լուծումների նախագծում ու ավտոմատացում։
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold uppercase text-xs tracking-widest">Նավիգացիա</h4>
+        <ul class="space-y-2 text-xs sm:text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Գլխավոր</a></li>
+          <li><a href="car.html" class="hover:text-brand-400 transition">Ծառայություններ</a></li>
+          <li><a href="about.html" class="hover:text-brand-400 transition">Մեր մասին</a></li>
+          <li><a href="index.html#calculator" class="hover:text-brand-400 transition">Հաշվիչ / Հայտ</a></li>
+        </ul>
+      </div>
+
+      <!-- Services List -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold uppercase text-xs tracking-widest">Ուղղություններ</h4>
+        <ul class="space-y-2 text-xs sm:text-sm">
+          <li>Օնլայն Խանութներ (E-commerce)</li>
+          <li>Անհատական CRM Համակարգեր</li>
+          <li>Բիզնես Վեբ Կայքեր</li>
+          <li>Ավտոմատացում & API</li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold uppercase text-xs tracking-widest">Կապ Մեզ Հետ</h4>
+        <div class="space-y-2 text-xs sm:text-sm">
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-brand-400"></i>
+            <span>+374 33 488275</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+            <a href="https://wa.me/37433488275" target="_blank" class="hover:underline">WhatsApp Գրել</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-10 sm:mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
+      <p>© 2026 SMART WEB SOLUTIONS / REGISCODE. Բոլոր իրավունքները պաշտպանված են:</p>
+      <div class="flex gap-4">
+        <a href="car.html" class="hover:text-slate-400 transition">Ծառայություններ</a>
+        <a href="about.html" class="hover:text-slate-400 transition">Մեր մասին</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Language Selector Script
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/30');
+        btn.classList.add('text-slate-400');
+      });
+
+      const selectedBtn = document.getElementById(`lang-${lang}`);
+      if (selectedBtn) {
+        selectedBtn.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-500/30');
+        selectedBtn.classList.remove('text-slate-400');
+      }
+
+      console.log(`Language changed to: ${lang}`);
+    }
+
+    // FAQ Animated Accordion Toggle Script
+    function toggleFaq(id) {
+      const answer = document.getElementById(`faq-answer-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      
+      if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+        answer.style.maxHeight = '0px';
+        icon.classList.remove('rotate-180');
+      } else {
+        // Close other opened FAQs
+        document.querySelectorAll('[id^="faq-answer-"]').forEach(el => el.style.maxHeight = '0px');
+        document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.classList.remove('rotate-180'));
+
+        // Open selected FAQ
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.classList.add('rotate-180');
+      }
+    }
+  </script>
+
+</body>
+</html>
