@@ -1,7 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, collection, onSnapshot, query, orderBy, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// Firebase Config: regis-8646e
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDKiCznhQlcpsnUaEuVLD2MZDoZMu8A8Tk",
   authDomain: "regis-8646e.firebaseapp.com",
@@ -14,28 +15,76 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+// DOM Elements
+const loginSection = document.getElementById('loginSection');
+const adminDashboard = document.getElementById('adminDashboard');
+const loginForm = document.getElementById('loginForm');
+const loginError = document.getElementById('loginError');
+const logoutBtn = document.getElementById('logoutBtn');
 const leadsTableBody = document.getElementById('leadsTableBody');
 
 let allLeads = [];
 let currentFilter = 'all';
+let unsubscribeFirestore = null;
 
-const q = query(collection(db, "leads"), orderBy("createdAt", "desc"));
-
-// Realtime Firestore Listener
-onSnapshot(q, (snapshot) => {
-  allLeads = [];
-  snapshot.forEach((docSnap) => {
-    allLeads.push({ id: docSnap.id, ...docSnap.data() });
-  });
-  renderLeads();
+// Auth State Listener (Ստուգում է՝ մուտք եղած է, թե չէ)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Մուտքը հաջողված է
+    loginSection.classList.add('hidden');
+    adminDashboard.classList.remove('hidden');
+    loadLeads();
+  } else {
+    // Մուտք եղած չէ
+    loginSection.classList.remove('hidden');
+    adminDashboard.classList.add('hidden');
+    if (unsubscribeFirestore) unsubscribeFirestore();
+  }
 });
 
-// Table Render Logic
+// Login Form Submit
+if (loginForm) {
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loginError.classList.add('hidden');
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      loginError.textContent = "Սխալ էլ-փոստ կամ գաղտնաբառ:";
+      loginError.classList.remove('hidden');
+    }
+  });
+}
+
+// Logout
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+    signOut(auth);
+  });
+}
+
+// Load Firestore Data
+function loadLeads() {
+  const q = query(collection(db, "leads"), orderBy("createdAt", "desc"));
+  unsubscribeFirestore = onSnapshot(q, (snapshot) => {
+    allLeads = [];
+    snapshot.forEach((docSnap) => {
+      allLeads.push({ id: docSnap.id, ...docSnap.data() });
+    });
+    renderLeads();
+  });
+}
+
+// Render Table
 function renderLeads() {
   if (!leadsTableBody) return;
   leadsTableBody.innerHTML = '';
 
-  // Filter Leads
   const filtered = allLeads.filter(lead => {
     if (currentFilter === 'all') return true;
     return (lead.status || 'Ուսումնասիրում') === currentFilter;
@@ -73,7 +122,7 @@ function renderLeads() {
     leadsTableBody.appendChild(row);
   });
 
-  // Attach Change Event to Select Menus
+  // Attach status change events
   document.querySelectorAll('.status-select').forEach(select => {
     select.addEventListener('change', async (e) => {
       const docId = e.target.getAttribute('data-id');
@@ -87,7 +136,7 @@ function renderLeads() {
   });
 }
 
-// Attach Event Listeners to Top Filter Buttons
+// Top Filter listeners
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     document.querySelectorAll('.filter-btn').forEach(b => {
