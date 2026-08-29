@@ -1,16 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Նոր Firebase Project Config: regiscode-92151
+// Firebase Config: regis-8646e
 const firebaseConfig = {
-  apiKey: "AIzaSyDaGwwRC_2kEtjFG-rCUD1XpM4uNvDKNNQ",
-  authDomain: "regiscode-92151.firebaseapp.com",
-  databaseURL: "https://regiscode-92151-default-rtdb.firebaseio.com",
-  projectId: "regiscode-92151",
-  storageBucket: "regiscode-92151.firebasestorage.app",
-  messagingSenderId: "248979565055",
-  appId: "1:248979565055:web:8c04d09813bd31ec509fca",
-  measurementId: "G-47RJBD59HJ"
+  apiKey: "AIzaSyDKiCznhQlcpsnUaEuVLD2MZDoZMu8A8Tk",
+  authDomain: "regis-8646e.firebaseapp.com",
+  projectId: "regis-8646e",
+  storageBucket: "regis-8646e.firebasestorage.app",
+  messagingSenderId: "303636628077",
+  appId: "1:303636628077:web:3bc762df5a32daba487564",
+  measurementId: "G-G1TMREE5JM"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,11 +19,10 @@ const leadsTableBody = document.getElementById('leadsTableBody');
 const q = query(collection(db, "leads"), orderBy("createdAt", "desc"));
 
 onSnapshot(q, (snapshot) => {
+  if (!leadsTableBody) return;
   leadsTableBody.innerHTML = '';
   snapshot.forEach((doc) => {
     const data = doc.data();
-    
-    // Ստուգում ենք, որպեսզի հեռախոսահամարը դատարկ չլինի
     const rawPhone = data.clientPhone || '';
     const phoneClean = rawPhone.replace(/[^0-9]/g, '');
 
